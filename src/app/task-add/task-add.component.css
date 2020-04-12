@@ -1,4 +1,8 @@
-.task-item{
+.mat-form-field-appearance-outline .mat-form-field-outline {
+    color: black;
+  }
+
+.category-item{
     width: 100%;
     min-width: 400px;
     max-width: 450px;
@@ -8,5 +12,9 @@
     padding: 16px 32px;
     margin-bottom: 8px;
     border-radius: 2px;
-    background-color: #EEEEEE;
+    background-color: gray;
+}
+
+.mat-green{
+    background-color: rgb(0, 109, 0);
 }

@@ -1,0 +1,44 @@
+
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
+<!--
+<div for="title">
+  <label>
+     Title
+  </label>
+  <input id="title" type="text" formControlName="title">
+</div>
+
+
+<div>
+  <label for="description">
+     Description
+  </label>
+  <input id="description" type="text" formControlName="description">
+</div>
+-->
+  <mat-form-field for="title" class="example-full-width" class="category-item">
+    <mat-label>Title</mat-label>
+    <input matInput placeholder="Ex. do homework" formControlName="title">
+  </mat-form-field>
+
+
+<mat-form-field for="description" class="example-full-width" class="category-item">
+    <mat-label>Description</mat-label>
+    <input matInput placeholder="Ex. Math is missing" formControlName="description">
+  </mat-form-field>
+
+
+<mat-form-field class="category-item">
+  <mat-label>Choose category</mat-label>
+  <mat-select formControlName="categoryId">
+    <mat-option color="black" *ngFor="let category of categories | async;" [value]="category.category_id">
+      {{category.category_name}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+  
+
+  <!--<button class="button" type="submit">Create</button>-->
+   <button mat-raised-button color="green" type="submit">Create</button>
+</form>
+

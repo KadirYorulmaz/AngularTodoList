@@ -1,1 +1,26 @@
-<p>task-detail works!</p>
+
+<div *ngFor="let t of task | async;">    
+<div *ngIf="editComponentDetail">
+    <span class="task-item">{{ t.task_id }}</span>
+
+    <span class="task-item">{{ t.task_title }}</span>
+
+    <span class="task-item">{{ t.task_description}}</span>
+
+    <span class="task-item">{{ t.task_date | date}}</span>
+
+    <span class="task-item">{{ t.category_id}}</span>
+
+    <span class="task-item">{{ t.category_name}}</span>
+</div>
+
+
+<button (click)="edit()">Edit</button>   
+<button (click)="delete(t.task_id)">delete</button> 
+<button>Mark as done</button>
+
+<div *ngIf="editComponentEdit">
+  <app-task-edit [task]="t"></app-task-edit>
+</div>
+
+</div>

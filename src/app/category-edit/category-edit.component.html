@@ -1,0 +1,23 @@
+<p>Edit category</p>
+
+<!--
+<div>
+        <a>{{category.category_id}}</a>   
+        <a>{{category.category_name}}</a>
+</div>
+-->
+
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
+
+<label>{{category.category_id}}</label>
+
+<mat-form-field for="description" class="example-full-width" class="category-item">
+    <mat-label>category name</mat-label>
+    <input matInput placeholder="category name" [(ngModel)]="category.category_name" formControlName="name">
+  </mat-form-field>
+
+   <button mat-raised-button color="green" type="submit">Save changes</button>
+</form>
+
+
+<button>Back</button>

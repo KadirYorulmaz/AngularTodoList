@@ -4,7 +4,9 @@
   <mat-grid-tile></mat-grid-tile>
   <mat-grid-tile></mat-grid-tile>
   <mat-grid-tile></mat-grid-tile>
-   <mat-grid-tile><button mat-fab color="blue">+</button></mat-grid-tile>
+  <mat-grid-tile>
+    <button mat-fab color="green" [routerLink]="['/createtask']">+</button>
+  </mat-grid-tile>
 </mat-grid-list>
 
 
@@ -12,12 +14,13 @@
 <div *ngFor="let task of taskList | async; index as task_id">
     
     <!--<h3><a [title]="task.task_title + 'details'" [routerLink]="['/task', task_id]">{{ task.task_title }}</a></h3>-->
-    <mat-card [title]="task.task_title + 'details'" [routerLink]="['/task', task_id]">
-    <mat-card-title>{{ task.task_title }}</mat-card-title>
-    <mat-card-subtitle>Category: {{ task.category_name}}</mat-card-subtitle>
-   <!-- <mat-card-content>hej2</mat-card-content>
-    <mat-card-actions>Hej3</mat-card-actions>
-    <mat-card-footer>Hej4</mat-card-footer>-->
+    <mat-card [title]="task.task_title + 'details'" [routerLink]="['/task', task.task_id]">
+        <mat-card-title>{{ task.task_id }}</mat-card-title>
+        <mat-card-title>{{ task.task_title }}</mat-card-title>
+        <mat-card-subtitle>Category: {{ task.category_name}}</mat-card-subtitle>
+       <!-- <mat-card-content>hej2</mat-card-content>
+        <mat-card-actions>Hej3</mat-card-actions>
+        <mat-card-footer>Hej4</mat-card-footer>-->
     </mat-card> 
    <!-- <span>{{ task.task_id }}<span>
     <span>{{ task.task_title }}<span>

@@ -1,0 +1,12 @@
+<button [routerLink]="['/category/add']">Create</button>
+
+<div *ngFor="let c of categories | async; index as category_id">
+    <div *ngIf="!editClicked" (click)="OnEdit(c)">
+        <a>{{c.category_id}}</a>   
+        <a>{{c.category_name}}</a>
+    </div>
+</div>
+
+<div *ngIf="editClicked">
+    <app-category-edit [category]="selectedCategory"></app-category-edit>
+</div>
