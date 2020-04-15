@@ -1,3 +1,5 @@
+<div class="content" role="main"> 
+
 <button [routerLink]="['/category/add']">Create</button>
 
 <div *ngFor="let c of categories | async; index as category_id">
@@ -9,4 +11,5 @@
 
 <div *ngIf="editClicked">
     <app-category-edit [category]="selectedCategory"></app-category-edit>
+</div>
 </div>

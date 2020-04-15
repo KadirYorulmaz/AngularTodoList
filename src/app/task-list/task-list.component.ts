@@ -9,12 +9,20 @@ import { TaskService } from '../services/task.service';
 })
 export class TaskListComponent implements OnInit {
 taskList;
+// countElements = [];
   constructor(
     private taskService: TaskService
   ) { }
 
   ngOnInit(): void {
     this.taskList = this.taskService.getAllTasks();
+
+    // this.taskList.forEach(element => {
+    //   console.log(element);
+    //   this.countElements.push(element.task_id);
+    //   console.log(this.countElements.length);
+    // });
+
   }
 
 }

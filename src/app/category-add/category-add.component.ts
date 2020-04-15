@@ -24,6 +24,7 @@ export class CategoryAddComponent implements OnInit {
 
   onSubmit(checkoutForm): void{
     console.log(checkoutForm);
+    //validateCategory 
     this.categoryService.createCategory(checkoutForm);
   }
 

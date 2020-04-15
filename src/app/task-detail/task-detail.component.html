@@ -1,3 +1,4 @@
+<div class="content">
 
 <div *ngFor="let t of task | async;">    
 <div *ngIf="editComponentDetail">
@@ -15,12 +16,15 @@
 </div>
 
 
-<button (click)="edit()">Edit</button>   
-<button (click)="delete(t.task_id)">delete</button> 
-<button>Mark as done</button>
+<button mat-raised-button *ngIf="editComponentDetail" (click)="edit()">Edit</button>   
+<button mat-raised-button *ngIf="editComponentDetail" (click)="delete(t.task_id)">delete</button> 
+<button mat-raised-button>Mark as done</button>
 
 <div *ngIf="editComponentEdit">
   <app-task-edit [task]="t"></app-task-edit>
 </div>
 
+<button mat-raised-button *ngIf="editComponentEdit" (click)="goBack()">Go back</button>
+
+</div>
 </div>

@@ -7,6 +7,8 @@ import { Input } from '@angular/core';
 import { CategoryService } from '../services/category.service';
 import { TaskService } from '../services/task.service'; 
 
+import { Router, ActivatedRoute } from '@angular/router';
+
 @Component({
   selector: 'app-task-edit',
   templateUrl: './task-edit.component.html',
@@ -23,6 +25,8 @@ export class TaskEditComponent implements OnInit {
     private formBuilder: FormBuilder,
     private categoryService: CategoryService,
     private taskService: TaskService,
+    private route: ActivatedRoute,
+    private router: Router,
   ) {
     this.checkoutForm = this.formBuilder.group({
       tasksId: '',
@@ -43,7 +47,6 @@ export class TaskEditComponent implements OnInit {
   onSubmit(taskData){
     //Gem data
     // this.checkoutForm.reset();
-  
     this.datetimeNow = Date.now();
     taskData.tasksId = this.task.task_id;
     taskData.createdDate = this.datetimeNow;
@@ -51,11 +54,16 @@ export class TaskEditComponent implements OnInit {
     console.log(taskData);
     console.warn('Your order has been submitted', taskData);
     this.taskService.editTask(taskData);
+    this.router.navigate(['/task']);
   	// "tasksId":"2",
 	  // "title": "Go walk extra",
 	  // "description": "Walk 10t step every day",
 	  // "createdDate":"2020-04-04 06:05:09",
 	  // "categoryId":"2"
+      }
+
+      GoBack(): void{
+
       }
 
 }

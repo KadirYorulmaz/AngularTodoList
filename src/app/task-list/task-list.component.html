@@ -1,31 +1,44 @@
-<h1>Task List</h1>
 
 <mat-grid-list cols="4" rowHeight="4:1">
   <mat-grid-tile></mat-grid-tile>
-  <mat-grid-tile></mat-grid-tile>
-  <mat-grid-tile></mat-grid-tile>
-  <mat-grid-tile>
+
+  <mat-grid-tile colspan="2">
+    <h1>Task List</h1>
+  </mat-grid-tile>
+  
+  <mat-grid-tile rowspan="2">
     <button mat-fab color="green" [routerLink]="['/createtask']">+</button>
   </mat-grid-tile>
 </mat-grid-list>
 
 
-  
-<div *ngFor="let task of taskList | async; index as task_id">
+<!--rowspan="2"-->
+<!--
+<mat-grid-list cols="4" rowHeight="8:1" *ngFor="let task of taskList | async; index as task_id" >
+  <mat-grid-tile ></mat-grid-tile>
+  <mat-grid-tile colspan="2" style="align">
     
-    <!--<h3><a [title]="task.task_title + 'details'" [routerLink]="['/task', task_id]">{{ task.task_title }}</a></h3>-->
+     <mat-list [title]="task.task_title + 'details'" [routerLink]="['/task', task.task_id]">
+      <mat-list-item style="color: black"> {{ task.task_id }} + {{ task.task_title }} + Category: {{ task.category_name}} </mat-list-item>
+     </mat-list>
+     
+  </mat-grid-tile>
+  <mat-grid-tile></mat-grid-tile>
+</mat-grid-list>
+-->
+
+
+
+
+
+<div class="content">
+<div *ngFor="let task of taskList | async; index as task_id">
     <mat-card [title]="task.task_title + 'details'" [routerLink]="['/task', task.task_id]">
         <mat-card-title>{{ task.task_id }}</mat-card-title>
         <mat-card-title>{{ task.task_title }}</mat-card-title>
         <mat-card-subtitle>Category: {{ task.category_name}}</mat-card-subtitle>
-       <!-- <mat-card-content>hej2</mat-card-content>
-        <mat-card-actions>Hej3</mat-card-actions>
-        <mat-card-footer>Hej4</mat-card-footer>-->
     </mat-card> 
-   <!-- <span>{{ task.task_id }}<span>
-    <span>{{ task.task_title }}<span>
-    <span>{{ task.task_description}}<span>
-    <span>{{ task.task_date}}<span>
-    <span>{{ task.category_id}}<span>
-    <span>{{ task.category_name}}<span>-->
 <div>
+</div>
+
+

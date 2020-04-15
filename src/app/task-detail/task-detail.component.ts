@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 
 import { TaskService } from '../services/task.service';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-task-detail',
@@ -18,7 +18,8 @@ editComponentDetail = true;
 
   constructor(
     private route: ActivatedRoute,
-    private taskService: TaskService
+    private taskService: TaskService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -35,6 +36,11 @@ editComponentDetail = true;
   delete(taskId): void {
     console.log(taskId);
     this.taskService.deleteTask(taskId);
+    this.router.navigate(['/task']);
   }
 
+  goBack(){
+    this.editComponentEdit = false;
+    this.editComponentDetail = true;
+  }
 }

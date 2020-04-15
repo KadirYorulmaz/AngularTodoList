@@ -11,7 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
-
+import { MatListModule } from '@angular/material/list';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,7 +23,6 @@ import { TaskEditComponent } from './task-edit/task-edit.component';
 import { CategoryListComponent } from './category-list/category-list.component';
 import { CategoryEditComponent } from './category-edit/category-edit.component';
 import { CategoryAddComponent } from './category-add/category-add.component';
-
 
 
 @NgModule({
@@ -44,6 +43,7 @@ import { CategoryAddComponent } from './category-add/category-add.component';
     MatGridListModule,
     MatSelectModule,
     MatInputModule,
+    MatListModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
