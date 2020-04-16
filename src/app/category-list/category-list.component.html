@@ -1,15 +1,43 @@
-<div class="content" role="main"> 
+<mat-grid-list *ngIf="!editClicked" cols="4" rowHeight="4:1">
+  <mat-grid-tile></mat-grid-tile>
 
-<button [routerLink]="['/category/add']">Create</button>
+  <mat-grid-tile colspan="2"> 
+    <h1>Category List</h1>
+  </mat-grid-tile>
+  
+  <mat-grid-tile rowspan="2">
+    <button mat-fab color="green" [routerLink]="['/category/add']">Create</button>
+  </mat-grid-tile>
+</mat-grid-list>
 
-<div *ngFor="let c of categories | async; index as category_id">
-    <div *ngIf="!editClicked" (click)="OnEdit(c)">
-        <a>{{c.category_id}}</a>   
-        <a>{{c.category_name}}</a>
+<!--
+    <div class="content" role="main"> 
+        <div *ngFor="let c of categories | async; index as category_id">
+            <div *ngIf="!editClicked" (click)="OnEdit(c)">
+                <a>{{c.category_id}}</a>   
+                <a>{{c.category_name}}</a>
+            </div>
+        </div>
+
+        <div *ngIf="editClicked">
+            <app-category-edit [category]="selectedCategory"></app-category-edit>
+        </div>
+    </div>
+-->
+
+<div class="content">
+    <div *ngFor="let c of categories | async; index as category_id">
+        <mat-card *ngIf="!editClicked" (click)="OnEdit(c)">
+            <mat-card-title>{{c.category_id}}</mat-card-title>
+            <mat-card-title>{{c.category_name}}</mat-card-title>
+        </mat-card> 
     </div>
 </div>
+
 
 <div *ngIf="editClicked">
     <app-category-edit [category]="selectedCategory"></app-category-edit>
 </div>
-</div>
+
+
+<button mat-raised-button *ngIf="editClicked" (click)="backBtn()">Back</button>

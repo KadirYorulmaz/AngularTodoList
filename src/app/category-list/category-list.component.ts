@@ -25,5 +25,9 @@ export class CategoryListComponent implements OnInit {
     this.editClicked = true;
     this.selectedCategory = c;
   }
+  
+  backBtn(): void {
+    this.editClicked = false;
+   }
 
 }

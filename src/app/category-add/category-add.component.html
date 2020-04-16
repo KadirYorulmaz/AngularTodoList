@@ -1,4 +1,4 @@
-<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
+<!--<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
 
 <mat-form-field for="description" class="example-full-width" class="category-item">
     <mat-label>category name</mat-label>
@@ -6,4 +6,30 @@
   </mat-form-field>
 
    <button mat-raised-button color="green" type="submit">Create</button>
-</form>
+
+</form>-->
+
+<mat-grid-list cols="4" rowHeight="4:2">
+  <mat-grid-tile colspan="4"><h1>Create category</h1></mat-grid-tile>
+  <mat-grid-tile></mat-grid-tile>
+
+  <mat-grid-tile colspan="2" style="background:lightslategray"> 
+    
+    <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
+        <!--<label>{{category.category_id}}</label>-->
+        <mat-form-field for="description" class="category-item">
+            <mat-label>category name</mat-label>
+            <input matInput placeholder="category name"  formControlName="name">
+        </mat-form-field>
+
+        <button mat-raised-button color="green" type="submit">Create</button>
+    </form>
+
+  </mat-grid-tile>
+  
+  <mat-grid-tile rowspan="2">
+   
+  </mat-grid-tile>
+</mat-grid-list>
+
+
